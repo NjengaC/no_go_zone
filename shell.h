@@ -79,61 +79,61 @@ typedef struct log
 } log;
 
 			/* PROCESS FUNCTIONS */
-void handle_sigint(int signum __attribute__((unused)));
-void env_extract(SHELL *shell);
-void fill_eshell(SHELL *eshell);
-void Frees(SHELL *eshell);
-void Write(char *input);
-void Fork(char *input, SHELL *shell);
-void Command_unfound(SHELL *shell);
-void path_error(SHELL *shell);
-void Log(log **head, char *command);
-void En_passant(SHELL *shell, log **current);
-void shuffle(char *line, int mode);
-void Free_log(log *head);
-void seperator(log **head, char *line);
-void handle_file(SHELL *shell);
-void write_error(char *error, SHELL *shell);
-void extension(char *nextToken, const char *delim, int *isDelimiter);
+void _sigint(int signum __attribute__((unused)));
+void get_env(SHELL *shell);
+void fill_shell(SHELL *eshell);
+void frees(SHELL *eshell);
+void write_i(char *input);
+void fork_(char *input, SHELL *shell);
+void command_unfound(SHELL *shell);
+void path_errors(SHELL *shell);
+void log(log **head, char *command);
+void log_current(SHELL *shell, log **current);
+void line_shuffler(char *line, int mode);
+void free_log(log *head);
+void sep(log **head, char *line);
+void file_as_arg(SHELL *shell);
+void flush_error(char *error, SHELL *shell);
+void ext(char *nextToken, const char *delim, int *isDelimiter);
 
-char *replacer(char *input, char *new, char *copy, char *ename);
+char *Replace(char *input, char *new, char *copy, char *ename);
 char **tokenize(char *line, int mode);
-char *hash(char *buffer);
-char *Which(char *input);
+char *handle_hash(char *buffer);
+char *which(char *input);
 char *_strtok(char *str, const char *delim);
-char *Itoa(int n);
-char *global_var(char *input __attribute__ ((unused)), SHELL *shell);
+char *_itoa(int n);
+char *global_variable(char *input __attribute__ ((unused)), SHELL *shell);
 char *exit_status(char *input, char *status);
 char *identity(char *input, char *id);
-char *En_var(char *input, SHELL *shell);
+char *en_var(char *input, SHELL *shell);
 
-int source(SHELL *shell, char *line);
-int executables(char *input);
-int process(SHELL *shell __attribute__ ((unused)));
-int Access(char *input, SHELL *shell);
-int First(char *input, SHELL *shell);
-int Syntax(char *input, SHELL *shell);
-int Syntax_error(char *input, SHELL *shell);
-int Pipe(char *input, SHELL *shell);
-int ampersand(char *input, SHELL *shell);
+int _source(SHELL *shell, char *line);
+int _executables(char *input);
+int _process(SHELL *shell __attribute__ ((unused)));
+int _access(char *input, SHELL *shell);
+int _first(char *input, SHELL *shell);
+int syntax(char *input, SHELL *shell);
+int syntax_error(char *input, SHELL *shell);
+int pipe(char *input, SHELL *shell);
+int handle_amp(char *input, SHELL *shell);
 
 /* Handles builtin commands */
 
-void change_dir_command(SHELL *shell);
-void exit_command(SHELL *shell);
-void env_command(SHELL *shell);
-int handle_builtin_commands(SHELL *shell);
+void _chdir(SHELL *shell);
+void exit_(SHELL *shell);
+void env_(SHELL *shell);
+int handle_builtins(SHELL *shell);
 
 
-char *getenv_custom(const char *name);
-int Atoi(const char *nptr);
-char *Strcat(char *dest, const char *src);
-char *Strcpy(char *dest, const char *src);
-int Strcmp(const char *s1, const char *s2);
-char *Strdup(const char *s);
-void *Realloc(void *ptr, size_t old_size, size_t size);
-char *Getline();
-int Strlen(char *input);
-size_t my_strlen(const char *s);
+char *_getenv(const char *name);
+int _atoi(const char *nptr);
+char *_strcat(char *dest, const char *src);
+char *_strcpy(char *dest, const char *src);
+int _strcmp(const char *s1, const char *s2);
+char *_strdup(const char *s);
+void *_realloc(void *ptr, size_t old_size, size_t size);
+char *_getline();
+int _strlen(char *input);
+size_t _strlen0(const char *s);
 
 #endif
