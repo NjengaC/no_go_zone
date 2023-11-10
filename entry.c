@@ -2,9 +2,8 @@
 
 
 /**
- * handle_sigint - Function that handles CTRL C.
- * @signum: It represents the single number that triggers the signal.
- *
+ * handle_sigint - Functions that handles CTRL C.
+ * @signum: represent the single number that triggers the signal.
  * Return: void.
  */
 
@@ -19,10 +18,10 @@ void handle_sigint(int signum __attribute__((unused)))
 }
 
 /**
- *main - entry point
- *@ac: the arguement count
- *@argv: the argurment vector
- *Return: status of the exectutions
+ *main - the entry point
+ *@ac: arguement count
+ *@argv: argurment vector
+ *Return: the status of the exectutions
  */
 
 int main(int ac __attribute__ ((unused)), char **argv)
@@ -71,10 +70,9 @@ int main(int ac __attribute__ ((unused)), char **argv)
 
 
 /**
- * fill_eshell - Function that fills the struct members with respective
+ * fill_eshell - Functions that fill the structure members with respective
  * content.
- * @eshell: The struct to be filled.
- *
+ * @eshell: structure to be filled.
  * Return: Void.
  */
 
@@ -88,9 +86,8 @@ void fill_eshell(SHELL *eshell)
 
 
 /**
- * Write - Function that writes whatver content given to the POSIX.
- * @input: Pointer to the content to be written out.
- *
+ * Write - Function that writes content given to the POSIX.
+ * @input: Pointer to content to be written out.
  * Return: Void.
  */
 
@@ -104,9 +101,9 @@ void Write(char *input)
 	write(STDOUT_FILENO, input, i);
 }
 /**
- *seperator - determines what command should be executed next
- *@head: the head of the linked list
- *@line: the tokenized command
+ *seperator - determine which command should be executed next
+ *@head: head of linked list
+ *@line: tokenized command
  *Return: nothing
  */
 

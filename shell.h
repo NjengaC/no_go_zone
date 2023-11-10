@@ -23,17 +23,16 @@ extern char **environ;
 
 
 /**
- * struct SHELL - This struct represents the shell environment and stores info
+ * structure of shell - This structure is the one that represents the shell environment and stores information
  * on the shell's state.
- * @av: An array of strings representing the command-line arguments passed
+ * @av: An array of strings to represent the command-line arguments is passed on
  * to the shell.
- * @toks: An array of strings representing the tokens of the current command
- * input.
- * @pid: An integer representing the process ID of the current process.
- * @status: An integer representing the exit status of the last executed
+ * @tokens: An array of strings to represent the tokens of the current command input.
+ * @id: An integer to represent the process ID of current process.
+ * @status: An integer to represent the exit status of the last executed
  * command.
- * @_environ: An array of strings.
- * @loop_count: An integer representing the number of times the shell has
+ * @envion: An array of strings.
+ * @loop_count: An integer to represent the number of times the shell has
  * executed its main loop.
  */
 
@@ -49,9 +48,9 @@ typedef struct SHELL
 
 
 /**
- * struct builtincommands - This struct stores built-in commands in the shell.
- * @command: A string representing the name of the built-in command.
- * @function: A function pointer to the function that executes
+ * struct builtin commands - This struct stores built-in commands in the shell.
+ * @command: A string to represent the name of the built-in command.
+ * @function: A function pointer that executes
  * the built-in command.
  */
 
@@ -64,11 +63,11 @@ typedef struct builtincommands
 
 
 /**
- * struct log - This struct represents a node in a linked list used to store
+ * structure log - This structure rep a node in a linked list used to store
  * logical operators in a command line.
- * @com: A string representing the command associated with the node.
- * @sep: A character representing the logical operator separator.
- * @next: A pointer to the next node in the linked list.
+ * @command: A string to represent the command associated with the node.
+ * @separate: A character to represent the logical operator separator.
+ * @linked: A pointer to the next node in the linked list.
  */
 
 typedef struct log
@@ -117,7 +116,7 @@ int syntax_error(char *input, SHELL *shell);
 int pipe(char *input, SHELL *shell);
 int handle_amp(char *input, SHELL *shell);
 
-/* Handles builtin commands */
+/* Handles built-in commands */
 
 void _chdir(SHELL *shell);
 void exit_(SHELL *shell);

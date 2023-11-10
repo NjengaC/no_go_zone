@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- *process - processees the commands for forking or execution
- *@shell: the mai struct
+ *process - processes the command for forking and execution
+ *@shell: the main structure
  *Return: nothing
  */
 
@@ -47,9 +47,9 @@ int process(SHELL *shell)
 }
 
 /**
- *Fork - performs the executio of the command
- *@input: the path of the executable
- *@shell: the mai struct
+ *Fork - perform the execution of the commands
+ *@input: path of the executable
+ *@shell: the main structure
  */
 
 void Fork(char *input, SHELL *shell)
@@ -83,8 +83,8 @@ void Fork(char *input, SHELL *shell)
 	shell->status = state / 256;
 }
 /**
- *handle_file - handles commands in a file
- *@shell: main struct
+ *handle_file - this handles commands in a file
+ *@shell: main structure
  *Return: nothing
  */
 
@@ -116,9 +116,9 @@ void handle_file(SHELL *shell)
 	exit(0);
 }
 /**
- *Frees - frees the main struct
- *@eshell: the main struct
- *Return: void
+ *Frees - it frees the main structure
+ *@eshell: the main structure
+ *Return: nothig
  */
 
 void Frees(SHELL *eshell)
@@ -146,9 +146,9 @@ void Frees(SHELL *eshell)
 }
 
 /**
- *Free_log - frees the logical operators linked list
- *@head: the head of the liked list
- *Return: void
+ *Free_log - this frees the logical operators linked lists
+ *@head: head of the liked lists
+ *Return: nothing
  */
 
 void Free_log(log *head)

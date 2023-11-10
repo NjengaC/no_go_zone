@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *Atoi- changes as tring to int
+ *Atoi- changing a string to int
  *@nptr: the string number
- *Return: the int
+ *Return: the integer
  */
 int Atoi(const char *nptr)
 {
@@ -29,10 +29,10 @@ int Atoi(const char *nptr)
 	return (sign * result);
 }
 /**
- * Strlen - function that counts the number of characters in a given string.
- * @input: Pointer to the string whose characters are to be counted.
+ * Strlen - function that count the numbers of characters in a given string.
+ * @input: Pointer string whose characters are to be counted.
  *
- * Return: The number of character counted in the string.
+ * Return: number of character count in the string.
  **/
 
 int Strlen(char *input)
@@ -46,10 +46,10 @@ int Strlen(char *input)
 
 
 /**
- *extension - an extesnion for strtok
+ *extension - extesnion for strtok
  *@nextToken: the next token
- *@delim: the delimiters used
- *@isDelimiter: a tracker for the delimiters
+ *@isdelimter: delimiters used
+ *@Delimiters: tracker for the delimiters
  *Return: nothing
  */
 
@@ -68,10 +68,9 @@ void extension(char *nextToken, const char *delim, int *isDelimiter)
 }
 
 /**
- * my_strlen - function that counts the number of characters in a given string.
- * @s: Pointer to the string whose characters are to be counted.
- *
- * Return: The number of character counted in the string.
+ * my_strlen - function to count the number of characters in a given string.
+ * @s: Pointer to the string characters to be counted.
+ * Return: number of characters counted in the string.
  **/
 
 size_t my_strlen(const char *s)
@@ -85,9 +84,9 @@ size_t my_strlen(const char *s)
 	return (len);
 }
 /**
- *Log - a linked list for logical operators
- *@head: the head of the linked list
- *@command: the input command
+ *Log -  linked list for logical operators
+ *@head: head of the linked list
+ *@command: input command
  *Return: nothing
  */
 

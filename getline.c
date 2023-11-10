@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *Itoa- changes from integer to string
- *@n: the number
- *Return: a string of the number
+ *Itoa- this changes from integer to string
+ *@n: a number
+ *Return: the string of the number
  */
 
 char *Itoa(int n)
@@ -44,9 +44,9 @@ char *Itoa(int n)
 }
 
 /**
- *Strdup - dublicates a string
- *@s: the string to be dublictated
- *Return: a dublicated string
+ *Strdup - this dublicates a string
+ *@s: string to be dublictated
+ *Return: dublicated string
  */
 
 char *Strdup(const char *s)
@@ -84,10 +84,10 @@ char *Strdup(const char *s)
 }
 
 /**
- *Strcmp - compares two strings
- *@s1: the first character
- *@s2: the second string
- *Return: 0 if they match else 1
+ *Strcmp - this compares two strings
+ *@s1: first character
+ *@s2: second string
+ *Return: 0 if the match else 1
  */
 
 int Strcmp(const char *s1, const char *s2)
@@ -104,10 +104,10 @@ int Strcmp(const char *s1, const char *s2)
 
 
 /**
- *Strcpy - copies a string
- *@dest: the destination
- *@src:  the source
- *Return: the copied string
+ *Strcpy - copy a string
+ *@dest: a destination
+ *@src:  a source
+ *Return: copied string
  */
 
 char *Strcpy(char *dest, const char *src)
@@ -123,10 +123,10 @@ char *Strcpy(char *dest, const char *src)
 }
 
 /**
- *Strcat - concatenates two strings
- *@dest: the destination
- *@src: the source string
- *Return: the concanted string
+ *Strcat - it concatenates two strings
+ *@dest: a destination
+ *@src: source string
+ *Return: concanted string
  */
 
 char *Strcat(char *dest, const char *src)

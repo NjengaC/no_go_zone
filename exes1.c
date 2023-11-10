@@ -3,12 +3,11 @@
 #define ARRAY_SIZE 128
 
 /**
- * tokenize - Split a line into tokens based on the specified mode.
- * @line: The line to be tokenized.
- * @mode: the mode of tokenization ie 1 for normal, 2 for special
+ * tokenize - Splits a line into token based on the specified mode.
+ * @line: a line to be tokenized.
+ * @mode: mode of tokenization ie 1 for normal, 2 for special
  * characters.
- *
- * Return: A dynamically allocated array of strings containing the tokens,
+ * Return: dynamically allocate array of strings containing the tokens,
  * or NULL if an error occured.
  */
 
@@ -57,11 +56,10 @@ char **tokenize(char *line, int mode)
 }
 
 /**
- * Syntax_error - Check for syntax errors in the command.
- * @input: The command to check for syntax errors.
+ * Syntax_error - Checks for syntax error in the command.
+ * @input: command to check for syntax errors.
  * @shell: Pointer to the shell data structure.
- *
- * Return: 0 on success, -1 if a syntax error is present.
+ * Return: 0 upon success, -1 if a syntax error present.
  */
 
 int Syntax_error(char *input, SHELL *shell)
@@ -109,11 +107,10 @@ int Syntax_error(char *input, SHELL *shell)
 }
 
 /**
- * Pipe - Check for syntax errors retated to pipes in command.
- * @input: the command to check for pipe-related syntax errors.
- * @shell: Pointer to the shell data structure.
- *
- * Return: 0 on success, -1 if a syntax error is encountered.
+ * Pipe - Checks for syntax error related to pipes in command.
+ * @input: command to check for pipe-related syntax error.
+ * @shell: Pointer to shell data structure.
+ * Return: 0 upon success, -1 if syntax error is encountered.
  */
 
 int Pipe(char *input, SHELL *shell)
@@ -161,11 +158,10 @@ int Pipe(char *input, SHELL *shell)
 }
 
 /**
- * ampersand - Check for syntax errors related to ampersands in the command.
- * @input: the command to check for ampersand-related syntax errors.
- * @shell: Pointer to the shell data structure.
- *
- * Return: 0 on success, -1 if a syntax error is encountered.
+ * ampersand - Checks for syntax error related to ampersand in the command.
+ * @input: command checks for ampersand-related syntax error.
+ * @shell: Pointer to shell data structure.
+ * Return: 0 upon success, -1 if syntax error is encountered.
  */
 
 int ampersand(char *input, SHELL *shell)
@@ -212,8 +208,8 @@ int ampersand(char *input, SHELL *shell)
 	return (0);
 }
 /**
- * exit_command - exits shell
- * @shell: the main struct
+ * exit_command - this exits shell
+ * @shell: the main structure
  * Return: nothing
  */
 
