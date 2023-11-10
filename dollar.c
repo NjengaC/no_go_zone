@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- *source - cotrols and parses the input
- *@shell: the main struct
+ *source - controls or parses the input
+ *@shell: the main structure
  *@line: the input
- *Return: 0 incase of command exit else 1
+ *Return: 0 incase of commad exit else 1
  */
 
 int source(SHELL *shell, char *line)
@@ -44,9 +44,9 @@ int source(SHELL *shell, char *line)
 }
 
 /**
- *shuffle - swaps one of the logcal operators for non printables and back
- *@line: the input
- *@mode: 1 for swaping to non printables and 2 for the undo
+ *shuffle - swap one of logcal operators for non printables and back
+ *@line: input
+ *@mode: 1 for swaping to non printable and 2 for the undo
  *Return: nothing
  */
 
@@ -88,9 +88,9 @@ void shuffle(char *line, int mode)
 	}
 }
 /**
- *En_passant - controls logical operators according to exit status
- *@shell:  the main struct
- *@current: the logical operators linked list
+ *En_passant - control logical operator according to exit status
+ *@shell: main structure
+ *@current: logical operators linked list
  *Return: void
  */
 
@@ -127,9 +127,9 @@ void En_passant(SHELL *shell, log **current)
 	}
 }
 /**
- *handle_builtin_commands - handles builtins
- *@shell: the main struct
- *Return: 1 case of exit, 0 on success and -1 for fail
+ *handle_builtin_commands - this handles builtins
+ *@shell: main structure
+ *Return: 1 case of exit, 0 upon success and -1 for fail
  */
 int handle_builtin_commands(SHELL *shell)
 {
@@ -166,9 +166,9 @@ int handle_builtin_commands(SHELL *shell)
 
 
 /**
- *env_command - prints the enviroment variables
- *@shell: the mian struct
- *Return: nothing
+ *env_command - this prints the enviroment variables.
+ *@shell: mian structure.
+ *Return: nothing.
  */
 void env_command(SHELL *shell)
 {

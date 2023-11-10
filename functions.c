@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- *change_dir_command - changes directories
- *@shell: the main struct
+ *change_dir_command - this changes directories
+ *@shell: the main structure
  *Return: nothing
  */
 void change_dir_command(SHELL *shell)
@@ -43,8 +43,8 @@ void change_dir_command(SHELL *shell)
 	}
 }
 /**
- *env_extract - extracts enviroment varaibles
- *@shell: the main struct
+ *env_extract - this extracts the enviroment varaibles
+ *@shell: the main structure
  *Return: void
  */
 
@@ -71,8 +71,8 @@ void env_extract(SHELL *shell)
 	shell->_environ[env_count] = NULL;
 }
 /**
- *Command_unfound -  prints the command unfoud error
- *@shell: the main struct
+ *Command_unfound - this prints the command unfound error
+ *@shell: the main structure
  *Return: nothing
  */
 
@@ -92,8 +92,8 @@ void Command_unfound(SHELL *shell)
 }
 
 /**
- *path_error - prints the path error
- *@shell: the main struct
+ *path_error - this prints the path error
+ *@shell: the main structure
  *Return: nothing
  */
 
@@ -115,10 +115,10 @@ void path_error(SHELL *shell)
 }
 
 /**
- *write_error - writes error to thr console
- *@error: the errror to be printed
- *@shell: the main struct
- *Return: nothhig
+ *write_error - this writes error to the console
+ *@error: errror to be printed.
+ *@shell: main structure.
+ *Return: nothing.
  */
 
 void write_error(char *error, SHELL *shell)

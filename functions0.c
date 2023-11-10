@@ -3,12 +3,11 @@
 #define buffsize 1024
 
 /**
- * Realloc - function that reallocates memory  using malloc.
- * @ptr: Pointer to the memory to be reduced.
- * @old_size: The old size of the memory to be changed.
- * @size: the new size to change to.
- *
- * Return: void.
+ * Realloc - the function that reallocates memory using malloc.
+ * @ptr: Pointer of the memory to be reduced.
+ * @old_size: old size of the memory to be changed.
+ * @size: new size to change to.
+ * Return: nothing.
  */
 
 void *Realloc(void *ptr, size_t old_size, size_t size)
@@ -50,10 +49,9 @@ void *Realloc(void *ptr, size_t old_size, size_t size)
 
 
 /**
- * Getline - Function that fetches the entire input from the output
+ * Getline - the Function that fetches the entire input from the output
  * stream.
- *
- * Return: The input fetched from the stream.
+ * Return: input fetched from the stream.
  */
 
 
@@ -97,10 +95,9 @@ char *Getline()
 }
 
 /**
- * hash - Function that handles the case where # has been used in a command.
- * @buffer: The pointer to where the user input is stored.
- *
- * Return: buffer after the #has been ignored hence a comment.
+ * hash - a Function that handles the case where # has been used in a command.
+ * @buffer: pointer to where the user input is stored.
+ * Return: the buffer after the #has been ignored hence a comment.
  */
 
 char *hash(char *buffer)
@@ -135,11 +132,10 @@ char *hash(char *buffer)
 }
 
 /**
- * _strtok - function that tokenizes a string based on whatever it is given.
+ * _strtok - a function that tokenizes a string based on whatever it is given.
  * @str: Pointer to the string to be tokenized.
- * @delim: The delimiter which strtok function uses to tokenize the string.
- *
- * Return: The tokenized words, else return NULL upon failure.
+ * @delim: delimiter which strtok function use to tokenize the string.
+ * Return: The tokenized words, else return NULL on failure.
  */
 
 char *_strtok(char *str, const char *delim)
@@ -179,10 +175,10 @@ char *_strtok(char *str, const char *delim)
 
 
 /**
- * getenv_custom - gets environment variables
- * @name: name of the variable
+ * getenv_custom - this gets environment variables
+ * @name: a name of the variable
  *
- * Return: NULL upone failure, else pointer to the value of the
+ * Return: NULL on failure, else pointer to the value of the
  * environment variable.
  **/
 

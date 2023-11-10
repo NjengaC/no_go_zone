@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * executables - Function that checks for executables.
- * @input: Pointer to the string to which the executable is checked.
+ * executables - a function that checks for executables.
+ * @input: a Pointer to the string to which the executable is checked.
  *
- * Return: -1 upon failure.
+ * Return: -1 on failure.
  */
 
 int executables(char *input)
@@ -44,11 +44,11 @@ int executables(char *input)
 }
 
 /**
- * Which - Search for a command in the directories listed in the Path
+ * Which - Search for a command in the directory listed in the Path
  * environment variable.
- * @input: The command to search for.
+ * @input: a command to search for.
  *
- * Return: A pointer to the full path of the command if found, else Null
+ * Return: the pointer to the full path of the command if found, else Null
  */
 
 char *Which(char *input)
@@ -97,11 +97,10 @@ char *Which(char *input)
 
 
 /**
- * Access - Check if a command is accessible and executable.
- * @input: The command to check.
- * @shell: Pointer to the shell data structure.
- *
- * Return: ) on success, -1 if the command is not accessible.
+ * Access - Checks if a command is accessible or executable.
+ * @input: a command to check.
+ * @shell: Pointer to shell data structure.
+ * Return: ) upon success, -1 if the command is not accessible.
  */
 
 int Access(char *input, SHELL *shell)
@@ -124,11 +123,11 @@ int Access(char *input, SHELL *shell)
 	return (0);
 }
 /**
- * Syntax - check the syntax of a command for correctness.
- * @input: The command to check for syntax.
- * @shell: Pointer to the shell data structure.
+ * Syntax - checks the syntax of a command for correctnes.
+ * @input: command to check for syntax.
+ * @shell: Pointer to shell data structure.
  *
- * Return: 0 on success, -1 if there is a syntax error.
+ * Return: 0 upon success, -1 if there is a syntax error.
  */
 
 int Syntax(char *input, SHELL *shell)
@@ -143,11 +142,10 @@ int Syntax(char *input, SHELL *shell)
 }
 
 /**
- * First - Check the syntax of the first token in the command.
- * @input: The command to check for the first token.
- * @shell: Pointer to the shell data structure.
- *
- * Return: 1 on success, -1 if there is a syntax error.
+ * First - Checks the syntax of first token in the command.
+ * @input: command to check the first token.
+ * @shell: Pointer to shell data structure.
+ * Return: 1 up on success, -1 if there is a syntax error.
  */
 
 int First(char *input, SHELL *shell)
@@ -192,4 +190,3 @@ int First(char *input, SHELL *shell)
 	}
 	return (1);
 }
-

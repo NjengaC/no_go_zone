@@ -41,9 +41,9 @@ char *global_var(char *input __attribute__ ((unused)), SHELL *shell)
 
 /**
  *exit_status - handles printig of the exit status
- *@input: the iiput string
- *@status: the status string
- *Return: the strings combined
+ *@input: the input string
+ *@status: a status string
+ *Return: a string combined
  */
 
 char *exit_status(char *input, char *status)
@@ -87,9 +87,9 @@ char *exit_status(char *input, char *status)
 
 /**
  *identity - handles the pid
- *@input: the string input
- *@id: the string id
- *Return: a string with the id intergrated
+ *@input: string input
+ *@id: string id
+ *Return: the string with the id intergrated
  */
 
 char *identity(char *input, char *id)
@@ -132,10 +132,10 @@ char *identity(char *input, char *id)
 }
 
 /**
- *En_var - handles enviroment variables
- *@input: the string input
- *@shell: the mai struct
- *Return: a string with the enviroment variable  integrated
+ *En_var - this handles enviroment variables
+ *@input: string input
+ *@shell: the main structure
+ *Return: string with enviroment variable integrated
  */
 
 char *En_var(char *input, SHELL *shell __attribute__ ((unused)))
@@ -179,12 +179,12 @@ char *En_var(char *input, SHELL *shell __attribute__ ((unused)))
 }
 
 /**
- *replacer - where the swappiong takees place
- *@input: the input string
- *@new: the new mallocated string
- *@ename: the name be replaced
- *@copy: the enviroment variable to copy
- *Return: an itergrated string
+ *replacer - where the swapping takes place
+ *@input: an input string
+ *@new: a new mallocated string
+ *@ename: the replaced name
+ *@copy: enviroment variable copied
+ *Return: a itergrated string
  */
 
 char *replacer(char *input, char *new, char *copy, char *ename)
