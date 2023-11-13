@@ -7,7 +7,7 @@
  *Return: an intergrated string
  */
 
-char *global_var(char *input __attribute__ ((unused)), SHELL *shell)
+char *global_variable(char *input __attribute__ ((unused)), SHELL *shell)
 {
 	char *status, *id;
 	int i;
@@ -46,7 +46,7 @@ char *global_var(char *input __attribute__ ((unused)), SHELL *shell)
  *Return: a string combined
  */
 
-char *exit_status(char *input, char *status)
+char *Exit_status(char *input, char *status)
 {
 	int i, len, j, l;
 	char *new;
@@ -138,7 +138,7 @@ char *identity(char *input, char *id)
  *Return: string with enviroment variable integrated
  */
 
-char *En_var(char *input, SHELL *shell __attribute__ ((unused)))
+char *en_var(char *input, SHELL *shell __attribute__ ((unused)))
 {
 	char *ename, *copy, *new;
 	int len;
@@ -187,7 +187,7 @@ char *En_var(char *input, SHELL *shell __attribute__ ((unused)))
  *Return: a itergrated string
  */
 
-char *replacer(char *input, char *new, char *copy, char *ename)
+char *Replace(char *input, char *new, char *copy, char *ename)
 {
 	int i, j, k;
 

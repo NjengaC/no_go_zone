@@ -10,7 +10,7 @@
  * Return: nothing.
  */
 
-void *Realloc(void *ptr, size_t old_size, size_t size)
+void *_realloc(void *ptr, size_t old_size, size_t size)
 {
 	void *new_ptr;
 	char *old_ptr = (char *)ptr;
@@ -55,7 +55,7 @@ void *Realloc(void *ptr, size_t old_size, size_t size)
  */
 
 
-char *Getline()
+char *_getline()
 {
 	char *buffer, r = 0;
 	int i = 0, charsRead, buffer_size;
@@ -100,7 +100,7 @@ char *Getline()
  * Return: the buffer after the #has been ignored hence a comment.
  */
 
-char *hash(char *buffer)
+char *handle_hash(char *buffer)
 {
 	int i;
 	bool quotes = false;
@@ -138,7 +138,7 @@ char *hash(char *buffer)
  * Return: The tokenized words, else return NULL on failure.
  */
 
-char *_strtok(char *str, const char *delim)
+char *_Strtok(char *str, const char *delim)
 {
 	static char *nextToken;
 	char *token = NULL;
@@ -182,7 +182,7 @@ char *_strtok(char *str, const char *delim)
  * environment variable.
  **/
 
-char *getenv_custom(const char *name)
+char *_getenv(const char *name)
 {
 	size_t name_length = 0;
 	int match;

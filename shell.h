@@ -96,10 +96,10 @@ void flush_error(char *error, SHELL *shell);
 void ext(char *nextToken, const char *delim, int *isDelimiter);
 
 char *Replace(char *input, char *new, char *copy, char *ename);
-char **tokenize(char *line, int mode);
+char **Tokenize(char *line, int mode);
 char *handle_hash(char *buffer);
 char *which(char *input);
-char *_strtok(char *str, const char *delim);
+char *_Strtok(char *str, const char *delim);
 char *_itoa(int n);
 char *global_variable(char *input __attribute__ ((unused)), SHELL *shell);
 char *exit_status(char *input, char *status);

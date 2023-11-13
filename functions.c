@@ -5,7 +5,7 @@
  *@shell: the main structure
  *Return: nothing
  */
-void change_dir_command(SHELL *shell)
+void _chdir(SHELL *shell)
 {
 	int result;
 	char cwd[1024];
@@ -48,7 +48,7 @@ void change_dir_command(SHELL *shell)
  *Return: void
  */
 
-void env_extract(SHELL *shell)
+void get_env(SHELL *shell)
 {
 	int env_count = 0, i, j;
 
@@ -76,7 +76,7 @@ void env_extract(SHELL *shell)
  *Return: nothing
  */
 
-void Command_unfound(SHELL *shell)
+void command_unfound(SHELL *shell)
 {
 	char *loop_count;
 
@@ -97,7 +97,7 @@ void Command_unfound(SHELL *shell)
  *Return: nothing
  */
 
-void path_error(SHELL *shell)
+void path_errors(SHELL *shell)
 {
 	char *loop_count;
 
@@ -121,7 +121,7 @@ void path_error(SHELL *shell)
  *Return: nothing.
  */
 
-void write_error(char *error, SHELL *shell)
+void flush_error(char *error, SHELL *shell)
 {
 	char *count = Itoa(shell->loop_count);
 

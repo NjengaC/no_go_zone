@@ -6,7 +6,7 @@
  *Return: the string of the number
  */
 
-char *Itoa(int n)
+char *_itoa(int n)
 {
 	unsigned int n1, temp;
 	char *buffer;
@@ -49,7 +49,7 @@ char *Itoa(int n)
  *Return: dublicated string
  */
 
-char *Strdup(const char *s)
+char *_strdup(const char *s)
 {
 	size_t len;
 	const char *ptr;
@@ -90,7 +90,7 @@ char *Strdup(const char *s)
  *Return: 0 if the match else 1
  */
 
-int Strcmp(const char *s1, const char *s2)
+int _strcmp(const char *s1, const char *s2)
 {
 	while (*s1 != '\0' && *s2 != '\0')
 	{
@@ -110,7 +110,7 @@ int Strcmp(const char *s1, const char *s2)
  *Return: copied string
  */
 
-char *Strcpy(char *dest, const char *src)
+char *_strcpy(char *dest, const char *src)
 {
 	char *dest_start = dest;
 
@@ -129,7 +129,7 @@ char *Strcpy(char *dest, const char *src)
  *Return: concanted string
  */
 
-char *Strcat(char *dest, const char *src)
+char *_strcat(char *dest, const char *src)
 {
 	char *dest_start = dest;
 

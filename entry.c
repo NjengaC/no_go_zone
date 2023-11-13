@@ -7,7 +7,7 @@
  * Return: void.
  */
 
-void handle_sigint(int signum __attribute__((unused)))
+void _sigint(int signum __attribute__((unused)))
 {
 	write(STDOUT_FILENO, "\n", 1);
 	if (isatty(STDIN_FILENO))
@@ -76,7 +76,7 @@ int main(int ac __attribute__ ((unused)), char **argv)
  * Return: Void.
  */
 
-void fill_eshell(SHELL *eshell)
+void fill_shell(SHELL *eshell)
 {
 	eshell->pid = getpid();
 	eshell->status = 0;
@@ -91,7 +91,7 @@ void fill_eshell(SHELL *eshell)
  * Return: Void.
  */
 
-void Write(char *input)
+void write_i(char *input)
 {
 	int i;
 
@@ -107,7 +107,7 @@ void Write(char *input)
  *Return: nothing
  */
 
-void seperator(log **head, char *line)
+void sep(log **head, char *line)
 {
 	int i;
 	log *current;

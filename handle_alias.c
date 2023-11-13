@@ -6,7 +6,7 @@
  *Return: nothing
  */
 
-int process(SHELL *shell)
+int _process(SHELL *shell)
 {
 	int Exec, i, numbuilts;
 	char *Dir,  *bul = shell->toks[0], *builtin[] = {"cd", "exit"};
@@ -52,7 +52,7 @@ int process(SHELL *shell)
  *@shell: the main structure
  */
 
-void Fork(char *input, SHELL *shell)
+void fork_(char *input, SHELL *shell)
 {
 	pid_t Pid;
 	int state;
@@ -88,7 +88,7 @@ void Fork(char *input, SHELL *shell)
  *Return: nothing
  */
 
-void handle_file(SHELL *shell)
+void file_as_arg(SHELL *shell)
 {
 	FILE *reads;
 	size_t len;
@@ -121,7 +121,7 @@ void handle_file(SHELL *shell)
  *Return: nothig
  */
 
-void Frees(SHELL *eshell)
+void frees(SHELL *eshell)
 {
 	int j;
 
@@ -151,7 +151,7 @@ void Frees(SHELL *eshell)
  *Return: nothing
  */
 
-void Free_log(log *head)
+void free_log(log *head)
 {
 	log *current, *tmp;
 

@@ -11,7 +11,7 @@
  * or NULL if an error occured.
  */
 
-char **tokenize(char *line, int mode)
+char **Tokenize(char *line, int mode)
 {
 	char **word_t, *word;
 	int size = ARRAY_SIZE, i = 0;
@@ -62,7 +62,7 @@ char **tokenize(char *line, int mode)
  * Return: 0 upon success, -1 if a syntax error present.
  */
 
-int Syntax_error(char *input, SHELL *shell)
+int syntax_error(char *input, SHELL *shell)
 {
 	int i;
 	char *error_txt;
@@ -164,7 +164,7 @@ int Pipe(char *input, SHELL *shell)
  * Return: 0 upon success, -1 if syntax error is encountered.
  */
 
-int ampersand(char *input, SHELL *shell)
+int handle_amp(char *input, SHELL *shell)
 {
 		int i;
 	char *error_txt = NULL;
@@ -214,7 +214,7 @@ int ampersand(char *input, SHELL *shell)
  */
 
 
-void exit_command(SHELL *shell)
+void exit_(SHELL *shell)
 {
 	int exit_status;
 

@@ -7,7 +7,7 @@
  * Return: -1 on failure.
  */
 
-int executables(char *input)
+int _executables(char *input)
 {
 	char *check = input;
 	int i;
@@ -51,7 +51,7 @@ int executables(char *input)
  * Return: the pointer to the full path of the command if found, else Null
  */
 
-char *Which(char *input)
+char *which(char *input)
 {
 	char *path, *copy, *tok;
 	char *dir;
@@ -103,7 +103,7 @@ char *Which(char *input)
  * Return: ) upon success, -1 if the command is not accessible.
  */
 
-int Access(char *input, SHELL *shell)
+int _access(char *input, SHELL *shell)
 {
 	if (input == NULL)
 	{
@@ -130,7 +130,7 @@ int Access(char *input, SHELL *shell)
  * Return: 0 upon success, -1 if there is a syntax error.
  */
 
-int Syntax(char *input, SHELL *shell)
+int syntax(char *input, SHELL *shell)
 {
 	if (First(input, shell) == -1 || Syntax_error(input, shell) == -1)
 	{
@@ -148,7 +148,7 @@ int Syntax(char *input, SHELL *shell)
  * Return: 1 up on success, -1 if there is a syntax error.
  */
 
-int First(char *input, SHELL *shell)
+int _first(char *input, SHELL *shell)
 {
 	int i;
 	char *Error_txt = NULL;

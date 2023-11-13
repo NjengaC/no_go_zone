@@ -6,7 +6,7 @@
  *Return: 0 incase of commad exit else 1
  */
 
-int source(SHELL *shell, char *line)
+int _source(SHELL *shell, char *line)
 {
 	log *head, *current;
 	char *word, *copy;
@@ -50,7 +50,7 @@ int source(SHELL *shell, char *line)
  *Return: nothing
  */
 
-void shuffle(char *line, int mode)
+void line_shuffler(char *line, int mode)
 {
 	int i;
 	char a;
@@ -94,7 +94,7 @@ void shuffle(char *line, int mode)
  *Return: void
  */
 
-void En_passant(SHELL *shell, log **current)
+void log_current(SHELL *shell, log **current)
 {
 	char sp;
 	int stat;
@@ -131,7 +131,7 @@ void En_passant(SHELL *shell, log **current)
  *@shell: main structure
  *Return: 1 case of exit, 0 upon success and -1 for fail
  */
-int handle_builtin_commands(SHELL *shell)
+int handle_builtins(SHELL *shell)
 {
 	unsigned long int i;
 	int exit_status;
@@ -170,7 +170,7 @@ int handle_builtin_commands(SHELL *shell)
  *@shell: mian structure.
  *Return: nothing.
  */
-void env_command(SHELL *shell)
+void env_(SHELL *shell)
 {
 	char **_env = shell->_environ;
 

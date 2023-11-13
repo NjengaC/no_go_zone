@@ -5,7 +5,7 @@
  *@nptr: the string number
  *Return: the integer
  */
-int Atoi(const char *nptr)
+int _Atoi(const char *nptr)
 {
 	int result = 0, sign = 1, i = 0;
 
@@ -35,7 +35,7 @@ int Atoi(const char *nptr)
  * Return: number of character count in the string.
  **/
 
-int Strlen(char *input)
+int _Strlen(char *input)
 {
 	int i;
 
@@ -53,7 +53,7 @@ int Strlen(char *input)
  *Return: nothing
  */
 
-void extension(char *nextToken, const char *delim, int *isDelimiter)
+void ext(char *nextToken, const char *delim, int *isDelimiter)
 {
 	int i;
 
@@ -73,7 +73,7 @@ void extension(char *nextToken, const char *delim, int *isDelimiter)
  * Return: number of characters counted in the string.
  **/
 
-size_t my_strlen(const char *s)
+size_t my_strlen0(const char *s)
 {
 	size_t len = 0;
 
@@ -90,7 +90,7 @@ size_t my_strlen(const char *s)
  *Return: nothing
  */
 
-void Log(log **head, char *command)
+void log(log **head, char *command)
 {
 	log *current, *new;
 
