@@ -2,7 +2,7 @@
 
 
 /**
- * handle_sigint - Functions that handles CTRL C.
+ * _sigint - Functions that handles CTRL C.
  * @signum: represent the single number that triggers the signal.
  * Return: void.
  */
@@ -12,7 +12,7 @@ void _sigint(int signum __attribute__((unused)))
 	write(STDOUT_FILENO, "\n", 1);
 	if (isatty(STDIN_FILENO))
 	{
-		Write("$");
+		write_i("$");
 		fflush(stdout);
 	}
 }
@@ -31,13 +31,13 @@ int main(int ac __attribute__ ((unused)), char **argv)
 	SHELL eshell;
 
 	eshell.av = argv;
-	fill_eshell(&eshell);
+	fill_shell(&eshell);
 
 	if (argv[1])
 	{
-		handle_file(&eshell);
+		file_as_arg(&eshell);
 	}
-	signal(SIGINT, handle_sigint);
+	signal(SIGINT, _sigint);
 
 	while (mode)
 	{
@@ -45,23 +45,23 @@ int main(int ac __attribute__ ((unused)), char **argv)
 		eshell.loop_count++;
 
 		if (isatty(STDIN_FILENO))
-			Write("$> ");
+			write_i("$> ");
 
-		line = Getline();
-		line = global_var(line, &eshell);
+		line = _getline();
+		line = global_variable(line, &eshell);
 
 		if (line[0] == '\0' || !line)
 		{
 			continue;
 		}
 
-		if (Syntax(line, &eshell) == -1)
+		if (syntax(line, &eshell) == -1)
 		{
 			free(line);
 			continue;
 		}
 
-		mode = source(&eshell, line);
+		mode = _source(&eshell, line);
 		free(line);
 		line = NULL;
 	}
@@ -70,7 +70,7 @@ int main(int ac __attribute__ ((unused)), char **argv)
 
 
 /**
- * fill_eshell - Functions that fill the structure members with respective
+ * fill_shell - Functions that fill the structure members with respective
  * content.
  * @eshell: structure to be filled.
  * Return: Void.
@@ -86,7 +86,7 @@ void fill_shell(SHELL *eshell)
 
 
 /**
- * Write - Function that writes content given to the POSIX.
+ * write_i - Function that writes content given to the POSIX.
  * @input: Pointer to content to be written out.
  * Return: Void.
  */
@@ -101,9 +101,9 @@ void write_i(char *input)
 	write(STDOUT_FILENO, input, i);
 }
 /**
- *seperator - determine which command should be executed next
+ *sep - determine which command should be executed next
  *@head: head of linked list
- *@line: tokenized command
+ *@line: Tokenized command
  *Return: nothing
  */
 
@@ -114,7 +114,7 @@ void sep(log **head, char *line)
 	char a;
 
 
-	shuffle(line, 1);
+	line_shuffler(line, 1);
 	current = *head;
 
 	for (i = 0; line[i]; i++)
@@ -141,5 +141,5 @@ void sep(log **head, char *line)
 
 	}
 
-	shuffle(line, 2);
+	line_shuffler(line, 2);
 }

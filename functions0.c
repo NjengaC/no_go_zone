@@ -3,7 +3,7 @@
 #define buffsize 1024
 
 /**
- * Realloc - the function that reallocates memory using malloc.
+ * _realloc - the function that reallocates memory using malloc.
  * @ptr: Pointer of the memory to be reduced.
  * @old_size: old size of the memory to be changed.
  * @size: new size to change to.
@@ -49,7 +49,7 @@ void *_realloc(void *ptr, size_t old_size, size_t size)
 
 
 /**
- * Getline - the Function that fetches the entire input from the output
+ * _getline - the Function that fetches the entire input from the output
  * stream.
  * Return: input fetched from the stream.
  */
@@ -86,7 +86,7 @@ char *_getline()
 
 		i++;
 	}
-	buffer[i] = '\0', buffer = hash(buffer);
+	buffer[i] = '\0', buffer = (buffer);
 	if (buffer == NULL)
 	{
 		return ("\0");
@@ -95,12 +95,12 @@ char *_getline()
 }
 
 /**
- * hash - a Function that handles the case where # has been used in a command.
+ *  - a Function that handles the case where # has been used in a command.
  * @buffer: pointer to where the user input is stored.
  * Return: the buffer after the #has been ignored hence a comment.
  */
 
-char *handle_hash(char *buffer)
+char *handle_(char *buffer)
 {
 	int i;
 	bool quotes = false;
@@ -132,10 +132,10 @@ char *handle_hash(char *buffer)
 }
 
 /**
- * _strtok - a function that tokenizes a string based on whatever it is given.
- * @str: Pointer to the string to be tokenized.
- * @delim: delimiter which strtok function use to tokenize the string.
- * Return: The tokenized words, else return NULL on failure.
+ * _Strtok - a function that Tokenizes a string based on whatever it is given.
+ * @str: Pointer to the string to be Tokenized.
+ * @delim: delimiter which strtok function use to Tokenize the string.
+ * Return: The Tokenized words, else return NULL on failure.
  */
 
 char *_Strtok(char *str, const char *delim)
@@ -151,7 +151,7 @@ char *_Strtok(char *str, const char *delim)
 	while (*nextToken != '\0')
 	{
 		isDelimiter = 0;
-		extension(nextToken, delim, &isDelimiter);
+		ext(nextToken, delim, &isDelimiter);
 		if (!isDelimiter)
 			break;
 		nextToken++;
@@ -162,7 +162,7 @@ char *_Strtok(char *str, const char *delim)
 	while (*nextToken != '\0')
 	{
 		isDelimiter = 0;
-		extension(nextToken, delim, &isDelimiter);
+		ext(nextToken, delim, &isDelimiter);
 		if (isDelimiter)
 		{
 			*nextToken = '\0', nextToken++;
@@ -175,7 +175,7 @@ char *_Strtok(char *str, const char *delim)
 
 
 /**
- * getenv_custom - this gets environment variables
+ * _getenv - this gets environment variables
  * @name: a name of the variable
  *
  * Return: NULL on failure, else pointer to the value of the

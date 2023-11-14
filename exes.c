@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * executables - a function that checks for executables.
+ * _executables - a function that checks for _executables.
  * @input: a Pointer to the string to which the executable is checked.
  *
  * Return: -1 on failure.
@@ -44,7 +44,7 @@ int _executables(char *input)
 }
 
 /**
- * Which - Search for a command in the directory listed in the Path
+ * which - Search for a command in the directory listed in the Path
  * environment variable.
  * @input: a command to search for.
  *
@@ -58,23 +58,23 @@ char *which(char *input)
 	int string_len;
 	struct stat Stat;
 
-	path = Strdup(getenv_custom("PATH"));
+	path = _strdup(_getenv("PATH"));
 	copy = path;
-	tok = _strtok(copy, ":");
+	tok = _Strtok(copy, ":");
 
 	while (tok)
 	{
-		string_len = Strlen(input) + Strlen(tok) + 2;
+		string_len =_strlen(input) +_strlen(tok) + 2;
 		dir = malloc(string_len * sizeof(char));
 		if (!dir)
 		{
 			free(dir);
 			return (NULL);
 		}
-		dir = Strcpy(dir, tok);
-		dir = Strcat(dir, "/");
-		dir = Strcat(dir, input);
-		dir = Strcat(dir, "\0");
+		dir = _strcpy(dir, tok);
+		dir = _strcat(dir, "/");
+		dir = _strcat(dir, input);
+		dir = _strcat(dir, "\0");
 		if (stat(dir, &Stat) == 0)
 		{
 			free(path);
@@ -83,13 +83,13 @@ char *which(char *input)
 		else
 		{
 			free(dir);
-			tok = _strtok(NULL, ":");
+			tok = _Strtok(NULL, ":");
 		}
 	}
 	if (stat(input, &Stat) == 0)
 	{
 		free(path);
-		return (Strdup(input));
+		return (_strdup(input));
 	}
 	free(path);
 	return (NULL);
@@ -97,7 +97,7 @@ char *which(char *input)
 
 
 /**
- * Access - Checks if a command is accessible or executable.
+ * _access - Checks if a command is accessible or executable.
  * @input: a command to check.
  * @shell: Pointer to shell data structure.
  * Return: ) upon success, -1 if the command is not accessible.
@@ -108,7 +108,7 @@ int _access(char *input, SHELL *shell)
 	if (input == NULL)
 	{
 		/*print error to the console*/
-		Command_unfound(shell);
+		command_unfound(shell);
 		shell->status = 127;
 		return (-1);
 	}
@@ -116,14 +116,14 @@ int _access(char *input, SHELL *shell)
 	else if (access(input, X_OK) == -1)
 	{
 		/*print error to the console*/
-		path_error(shell);
+		path_errors(shell);
 		return (-1);
 	}
 
 	return (0);
 }
 /**
- * Syntax - checks the syntax of a command for correctnes.
+ * syntax - checks the syntax of a command for correctnes.
  * @input: command to check for syntax.
  * @shell: Pointer to shell data structure.
  *
@@ -132,7 +132,7 @@ int _access(char *input, SHELL *shell)
 
 int syntax(char *input, SHELL *shell)
 {
-	if (First(input, shell) == -1 || Syntax_error(input, shell) == -1)
+	if (_first(input, shell) == -1 || syntax_error(input, shell) == -1)
 	{
 		return (-1);
 	}
@@ -142,7 +142,7 @@ int syntax(char *input, SHELL *shell)
 }
 
 /**
- * First - Checks the syntax of first token in the command.
+ * _first - Checks the syntax of first token in the command.
  * @input: command to check the first token.
  * @shell: Pointer to shell data structure.
  * Return: 1 up on success, -1 if there is a syntax error.
@@ -185,7 +185,7 @@ int _first(char *input, SHELL *shell)
 	}
 	if (Error_txt)
 	{
-		write_error(Error_txt, shell);
+		flush_error(Error_txt, shell);
 		return (-1);
 	}
 	return (1);

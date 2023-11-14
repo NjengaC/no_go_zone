@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- *source - controls or parses the input
+ *_source - controls or parses the input
  *@shell: the main structure
  *@line: the input
  *Return: 0 incase of commad exit else 1
@@ -12,39 +12,39 @@ int _source(SHELL *shell, char *line)
 	char *word, *copy;
 	int result;
 
-	head = NULL, copy = Strdup(line), word = strtok(copy, "|&;\n");
+	head = NULL, copy = _strdup(line), word = strtok(copy, "|&;\n");
 
 	while (word)
 	{
-		Log(&head, word), word = strtok(NULL, "|&;\n");
+		_log(&head, word), word = strtok(NULL, "|&;\n");
 	}
-	seperator(&head, line),	current = head;
+	sep(&head, line),	current = head;
 	while (current)
 	{
-		shell->toks = tokenize(current->com, 1), env_extract(shell);
+		shell->toks = Tokenize(current->com, 1), get_env(shell);
 		if (!shell->toks)
 		{
 			continue;
 		}
-		result = handle_builtin_commands(shell);
+		result = handle_builtins(shell);
 		if (result == 1)
 		{
-			free(copy), Free_log(head), Frees(shell);
+			free(copy), free_log(head), frees(shell);
 			return (0);
 		}
-		process(shell),	En_passant(shell, &current);
+		_process(shell),	log_current(shell, &current);
 		if (current)
 		{
 			current = current->next;
 		}
-		Frees(shell);
+		frees(shell);
 	}
-	free(copy), Free_log(head);
+	free(copy), free_log(head);
 	return (1);
 }
 
 /**
- *shuffle - swap one of logcal operators for non printables and back
+ *line_shuffler - swap one of logcal operators for non printables and back
  *@line: input
  *@mode: 1 for swaping to non printable and 2 for the undo
  *Return: nothing
@@ -88,7 +88,7 @@ void line_shuffler(char *line, int mode)
 	}
 }
 /**
- *En_passant - control logical operator according to exit status
+ *log_current - control logical operator according to exit status
  *@shell: main structure
  *@current: logical operators linked list
  *Return: void
@@ -127,7 +127,7 @@ void log_current(SHELL *shell, log **current)
 	}
 }
 /**
- *handle_builtin_commands - this handles builtins
+ *handle_builtins - this handles builtins
  *@shell: main structure
  *Return: 1 case of exit, 0 upon success and -1 for fail
  */
@@ -137,20 +137,20 @@ int handle_builtins(SHELL *shell)
 	int exit_status;
 
 	builtin builtin_commands[] = {
-		/*{"env", env_command},*/
-		{"exit", exit_command},
-		{"cd", change_dir_command}
+		/*{"env", env_},*/
+		{"exit", exit_},
+		{"cd", _chdir}
 	};
 
 	for (i = 0; i < sizeof(builtin_commands) / sizeof(builtin); i++)
 	{
-		if (Strcmp(shell->toks[0], builtin_commands[i].command) == 0)
+		if (_strcmp(shell->toks[0], builtin_commands[i].command) == 0)
 		{
-			if (Strcmp(builtin_commands[i].command, "exit") == 0)
+			if (_strcmp(builtin_commands[i].command, "exit") == 0)
 			{
 				if (shell->toks[1])
 				{
-					exit_status = Atoi(shell->toks[1]);
+					exit_status = _atoi(shell->toks[1]);
 					shell->status = exit_status;
 				}
 				else
@@ -166,7 +166,7 @@ int handle_builtins(SHELL *shell)
 
 
 /**
- *env_command - this prints the enviroment variables.
+ *env_ - this prints the enviroment variables.
  *@shell: mian structure.
  *Return: nothing.
  */
@@ -176,8 +176,8 @@ void env_(SHELL *shell)
 
 	while (*_env)
 	{
-		Write(*_env);
-		Write("\n");
+		write_i(*_env);
+		write_i("\n");
 		_env++;
 	}
 }

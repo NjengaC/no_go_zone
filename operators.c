@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- *Atoi- changing a string to int
+ *_atoi- changing a string to int
  *@nptr: the string number
  *Return: the integer
  */
-int _Atoi(const char *nptr)
+int _atoi(const char *nptr)
 {
 	int result = 0, sign = 1, i = 0;
 
@@ -29,13 +29,13 @@ int _Atoi(const char *nptr)
 	return (sign * result);
 }
 /**
- * Strlen - function that count the numbers of characters in a given string.
+ *_strlen - function that count the numbers of characters in a given string.
  * @input: Pointer string whose characters are to be counted.
  *
  * Return: number of character count in the string.
  **/
 
-int _Strlen(char *input)
+int _strlen(char *input)
 {
 	int i;
 
@@ -46,7 +46,7 @@ int _Strlen(char *input)
 
 
 /**
- *extension - extesnion for strtok
+ *ext - extesnion for strtok
  *@nextToken: the next token
  *@isdelimter: delimiters used
  *@Delimiters: tracker for the delimiters
@@ -68,12 +68,12 @@ void ext(char *nextToken, const char *delim, int *isDelimiter)
 }
 
 /**
- * my_strlen - function to count the number of characters in a given string.
+ * _strlen0 - function to count the number of characters in a given string.
  * @s: Pointer to the string characters to be counted.
  * Return: number of characters counted in the string.
  **/
 
-size_t my_strlen0(const char *s)
+size_t _strlen00(const char *s)
 {
 	size_t len = 0;
 
@@ -84,20 +84,20 @@ size_t my_strlen0(const char *s)
 	return (len);
 }
 /**
- *Log -  linked list for logical operators
+ *log -  linked list for logical operators
  *@head: head of the linked list
  *@command: input command
  *Return: nothing
  */
 
-void log(log **head, char *command)
+void _log(log **head, char *command)
 {
 	log *current, *new;
 
 
 	new = malloc(sizeof(log));
 
-	new->com = Strdup(command);
+	new->com = _strdup(command);
 	new->sep = 'a';
 	new->next = NULL;
 

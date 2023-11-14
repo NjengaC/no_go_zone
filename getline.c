@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *Itoa- this changes from integer to string
+ *_itoa- this changes from integer to string
  *@n: a number
  *Return: the string of the number
  */
@@ -44,7 +44,7 @@ char *_itoa(int n)
 }
 
 /**
- *Strdup - this dublicates a string
+ *_strdup - this dublicates a string
  *@s: string to be dublictated
  *Return: dublicated string
  */
@@ -84,7 +84,7 @@ char *_strdup(const char *s)
 }
 
 /**
- *Strcmp - this compares two strings
+ *_strcmp - this compares two strings
  *@s1: first character
  *@s2: second string
  *Return: 0 if the match else 1
@@ -104,9 +104,9 @@ int _strcmp(const char *s1, const char *s2)
 
 
 /**
- *Strcpy - copy a string
+ *_strcpy - copy a string
  *@dest: a destination
- *@src:  a source
+ *@src:  a _source
  *Return: copied string
  */
 
@@ -123,9 +123,9 @@ char *_strcpy(char *dest, const char *src)
 }
 
 /**
- *Strcat - it concatenates two strings
+ *_strcat - it concatenates two strings
  *@dest: a destination
- *@src: source string
+ *@src: _source string
  *Return: concanted string
  */
 

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *process - processes the command for forking and execution
+ *_process - _processes the command for forking and execution
  *@shell: the main structure
  *Return: nothing
  */
@@ -11,34 +11,34 @@ int _process(SHELL *shell)
 	int Exec, i, numbuilts;
 	char *Dir,  *bul = shell->toks[0], *builtin[] = {"cd", "exit"};
 
-	Exec = executables(shell->toks[0]);
+	Exec = _executables(shell->toks[0]);
 
 	numbuilts = sizeof(builtin) / sizeof(builtin[0]);
 	for (i = 0; i < numbuilts; i++)
 	{
-		if (Strcmp(bul, builtin[i]) == 0)
+		if (_strcmp(bul, builtin[i]) == 0)
 			return (0);
 	}
 	if (Exec == -1)
 	{
-		Command_unfound(shell);
+		command_unfound(shell);
 		shell->status = 127;
 		return (1);
 	}
 	else if (Exec == 0)
 	{
-		Dir = Which(shell->toks[0]);
+		Dir = which(shell->toks[0]);
 	}
 	else
 	{
 		Dir = shell->toks[0] + Exec;
 	}
-	if (Access(Dir, shell) == -1)
+	if (_access(Dir, shell) == -1)
 	{
 		shell->status = 126, free(Dir);
 		return (1);
 	}
-	Fork(Dir, shell);
+	fork_(Dir, shell);
 	if (Exec == 0)
 	{
 		free(Dir);
@@ -47,7 +47,7 @@ int _process(SHELL *shell)
 }
 
 /**
- *Fork - perform the execution of the commands
+ *fork_ - perform the execution of the commands
  *@input: path of the executable
  *@shell: the main structure
  */
@@ -83,7 +83,7 @@ void fork_(char *input, SHELL *shell)
 	shell->status = state / 256;
 }
 /**
- *handle_file - this handles commands in a file
+ *file_as_arg - this handles commands in a file
  *@shell: main structure
  *Return: nothing
  */
@@ -105,7 +105,7 @@ void file_as_arg(SHELL *shell)
 	while ((getline(&line, &len, reads)) != -1)
 	{
 		shell->loop_count++;
-		source(shell, line);
+		_source(shell, line);
 	}
 	if (line)
 	{
@@ -116,7 +116,7 @@ void file_as_arg(SHELL *shell)
 	exit(0);
 }
 /**
- *Frees - it frees the main structure
+ *frees - it frees the main structure
  *@eshell: the main structure
  *Return: nothig
  */
@@ -146,7 +146,7 @@ void frees(SHELL *eshell)
 }
 
 /**
- *Free_log - this frees the logical operators linked lists
+ *free_log(( - this frees the logical operators linked lists
  *@head: head of the liked lists
  *Return: nothing
  */

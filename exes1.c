@@ -3,8 +3,8 @@
 #define ARRAY_SIZE 128
 
 /**
- * tokenize - Splits a line into token based on the specified mode.
- * @line: a line to be tokenized.
+ * Tokenize - Splits a line into token based on the specified mode.
+ * @line: a line to be Tokenized.
  * @mode: mode of tokenization ie 1 for normal, 2 for special
  * characters.
  * Return: dynamically allocate array of strings containing the tokens,
@@ -41,7 +41,7 @@ char **Tokenize(char *line, int mode)
 	{
 		if (i == size - 1)
 		{
-			word_t = Realloc(word_t, size * sizeof(char *), size * 2 * sizeof(char *));
+			word_t = _realloc(word_t, size * sizeof(char *), size * 2 * sizeof(char *));
 			if (!word_t)
 			{
 				write(STDERR_FILENO, "MEMORY ALLOCATION ERROR\n", 24);
@@ -56,7 +56,7 @@ char **Tokenize(char *line, int mode)
 }
 
 /**
- * Syntax_error - Checks for syntax error in the command.
+ * syntax_error - Checks for syntax error in the command.
  * @input: command to check for syntax errors.
  * @shell: Pointer to the shell data structure.
  * Return: 0 upon success, -1 if a syntax error present.
@@ -95,10 +95,10 @@ int syntax_error(char *input, SHELL *shell)
 	}
 	if (error_txt)
 	{
-		write_error(error_txt, shell);
+		flush_error(error_txt, shell);
 		return (-1);
 	}
-	else if (Pipe(input, shell) == -1 || ampersand(input, shell) == -1)
+	else if (_pipe(input, shell) == -1 || handle_amp(input, shell) == -1)
 	{
 		return (-1);
 	}
@@ -107,13 +107,13 @@ int syntax_error(char *input, SHELL *shell)
 }
 
 /**
- * Pipe - Checks for syntax error related to pipes in command.
- * @input: command to check for pipe-related syntax error.
+ *_pipe - Checks for syntax error related to _pipes in command.
+ * @input: command to check for _pipe-related syntax error.
  * @shell: Pointer to shell data structure.
  * Return: 0 upon success, -1 if syntax error is encountered.
  */
 
-int Pipe(char *input, SHELL *shell)
+int _pipe(char *input, SHELL *shell)
 {
 	int i;
 	char *error_txt = NULL;
@@ -150,7 +150,7 @@ int Pipe(char *input, SHELL *shell)
 
 	if (error_txt)
 	{
-		write_error(error_txt, shell);
+		flush_error(error_txt, shell);
 		return (-1);
 	}
 
@@ -158,8 +158,8 @@ int Pipe(char *input, SHELL *shell)
 }
 
 /**
- * ampersand - Checks for syntax error related to ampersand in the command.
- * @input: command checks for ampersand-related syntax error.
+ * handle_amp - Checks for syntax error related to handle_amp in the command.
+ * @input: command checks for handle_amp-related syntax error.
  * @shell: Pointer to shell data structure.
  * Return: 0 upon success, -1 if syntax error is encountered.
  */
@@ -201,14 +201,14 @@ int handle_amp(char *input, SHELL *shell)
 
 	if (error_txt)
 	{
-		write_error(error_txt, shell);
+		flush_error(error_txt, shell);
 		return (-1);
 	}
 
 	return (0);
 }
 /**
- * exit_command - this exits shell
+ * exit_ - this exits shell
  * @shell: the main structure
  * Return: nothing
  */
@@ -220,7 +220,7 @@ void exit_(SHELL *shell)
 
 	if (shell->toks[1] != NULL)
 	{
-		exit_status = Atoi(shell->toks[1]);
+		exit_status = _atoi(shell->toks[1]);
 		shell->status = exit_status;
 		exit(shell->status);
 	}

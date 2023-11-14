@@ -28,7 +28,7 @@ extern char **environ;
  * @av: An array of strings to represent the command-line arguments is passed on
  * to the shell.
  * @tokens: An array of strings to represent the tokens of the current command input.
- * @id: An integer to represent the process ID of current process.
+ * @id: An integer to represent the _process ID of current _process.
  * @status: An integer to represent the exit status of the last executed
  * command.
  * @envion: An array of strings.
@@ -86,7 +86,7 @@ void write_i(char *input);
 void fork_(char *input, SHELL *shell);
 void command_unfound(SHELL *shell);
 void path_errors(SHELL *shell);
-void log(log **head, char *command);
+void _log(log **head, char *command);
 void log_current(SHELL *shell, log **current);
 void line_shuffler(char *line, int mode);
 void free_log(log *head);
@@ -97,7 +97,7 @@ void ext(char *nextToken, const char *delim, int *isDelimiter);
 
 char *Replace(char *input, char *new, char *copy, char *ename);
 char **Tokenize(char *line, int mode);
-char *handle_hash(char *buffer);
+char *handle_(char *buffer);
 char *which(char *input);
 char *_Strtok(char *str, const char *delim);
 char *_itoa(int n);
@@ -113,7 +113,7 @@ int _access(char *input, SHELL *shell);
 int _first(char *input, SHELL *shell);
 int syntax(char *input, SHELL *shell);
 int syntax_error(char *input, SHELL *shell);
-int pipe(char *input, SHELL *shell);
+int _pipe(char *input, SHELL *shell);
 int handle_amp(char *input, SHELL *shell);
 
 /* Handles built-in commands */

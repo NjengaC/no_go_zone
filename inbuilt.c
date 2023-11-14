@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *global_var - checks for eviroment variables
+ *global_variable - checks for eviroment variables
  *@input: the input strig
  *@shell: the main struct
  *Return: an intergrated string
@@ -18,19 +18,19 @@ char *global_variable(char *input __attribute__ ((unused)), SHELL *shell)
 		{
 			if (input[i + 1] == '?')
 			{
-				status = Itoa(shell->status);
+				status = _itoa(shell->status);
 				return (exit_status(input, status));
 			}
 
 			else if (input[i + 1] == '$')
 			{
-				id = Itoa(shell->pid);
+				id = _itoa(shell->pid);
 				return (identity(input, id));
 			}
 
 			else
 			{
-				return (En_var(input, shell));
+				return (en_var(input, shell));
 			}
 		}
 	}
@@ -46,17 +46,17 @@ char *global_variable(char *input __attribute__ ((unused)), SHELL *shell)
  *Return: a string combined
  */
 
-char *Exit_status(char *input, char *status)
+char *exit_status(char *input, char *status)
 {
 	int i, len, j, l;
 	char *new;
 
-	len = (Strlen(input) + Strlen(status));
+	len = (_strlen((input) +_strlen(status)));
 	new = malloc(len + 1);
 
 	if (!new)
 	{
-		Write("MEMORY ALLOCATION FAILURE\n");
+		write_i("MEMORY ALLOCATION FAILURE\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -64,7 +64,7 @@ char *Exit_status(char *input, char *status)
 	{
 		if (input[i] == '$')
 		{
-			for (l = 0; l < Strlen(status); l++)
+			for (l = 0; l <_strlen(status); l++)
 			{
 				new[j] = status[l];
 				j++;
@@ -97,12 +97,12 @@ char *identity(char *input, char *id)
 	int i, len, j, l;
 	char *new;
 
-	len = (Strlen(input) + Strlen(id));
+	len = (_strlen(input) +_strlen(id));
 	new = malloc(len + 1);
 
 	if (!new)
 	{
-		Write("MEMORY ALLOCATION FAILURE\n");
+		write_i("MEMORY ALLOCATION FAILURE\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -110,7 +110,7 @@ char *identity(char *input, char *id)
 	{
 		if (input[i] == '$')
 		{
-			for (l = 0; l < Strlen(id); l++)
+			for (l = 0; l <_strlen(id); l++)
 			{
 				new[j] = id[l];
 				j++;
@@ -132,7 +132,7 @@ char *identity(char *input, char *id)
 }
 
 /**
- *En_var - this handles enviroment variables
+ *en_var - this handles enviroment variables
  *@input: string input
  *@shell: the main structure
  *Return: string with enviroment variable integrated
@@ -152,7 +152,7 @@ char *en_var(char *input, SHELL *shell __attribute__ ((unused)))
 		}
 		ename++;
 	}
-	ename = _strtok(ename, " \n");
+	ename = _Strtok(ename, " \n");
 	if (!*(ename + 1))
 	{
 		copy = "$";
@@ -160,26 +160,26 @@ char *en_var(char *input, SHELL *shell __attribute__ ((unused)))
 	else
 	{
 		ename++;
-		copy = getenv_custom(ename);
+		copy = _getenv(ename);
 	}
 	if (copy)
 	{
-		len = Strlen(input) + (Strlen(copy) - Strlen(ename));
+		len =_strlen(input) + (_strlen(copy) -_strlen(ename));
 		new = malloc((len + 1) * sizeof(char));
 	}
 	else
 	{
-		new = malloc((Strlen(input) + 1) * sizeof(char));
+		new = malloc((_strlen((input) + 1) * sizeof(char)));
 	}
 	if (!new)
 	{
 		exit(EXIT_FAILURE);
 	}
-	return (replacer(input, new, copy, (*ename == '$' ? ename : ename - 1)));
+	return (Replace(input, new, copy, (*ename == '$' ? ename : ename - 1)));
 }
 
 /**
- *replacer - where the swapping takes place
+ *Replace - where the swapping takes place
  *@input: an input string
  *@new: a new mallocated string
  *@ename: the replaced name
@@ -202,7 +202,7 @@ char *Replace(char *input, char *new, char *copy, char *ename)
 					new[j] = copy[k];
 					j++;
 				}
-				i += Strlen(ename);
+				i +=_strlen(ename);
 			}
 			else
 			{
@@ -217,7 +217,7 @@ char *Replace(char *input, char *new, char *copy, char *ename)
 		{
 			if (input[i] == '$')
 			{
-				i += Strlen(ename);
+				i +=_strlen(ename);
 			}
 			else
 			{
