@@ -45,7 +45,7 @@ int main(int ac __attribute__ ((unused)), char **argv)
 		eshell.loop_count++;
 
 		if (isatty(STDIN_FILENO))
-			write_i("$> ");
+			write_i("Entry/User$");
 
 		line = _getline();
 		line = global_variable(line, &eshell);
