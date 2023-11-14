@@ -23,15 +23,18 @@ extern char **environ;
 
 
 /**
- * structure of shell - This structure is the one that represents the shell environment and stores information
+ * struct SHELL - This structure is the one that represents the
+ * shell environment and stores information
  * on the shell's state.
- * @av: An array of strings to represent the command-line arguments is passed on
+ * @av: An array of strings to represent the command-line
+ * arguments is passed on
  * to the shell.
- * @tokens: An array of strings to represent the tokens of the current command input.
- * @id: An integer to represent the _process ID of current _process.
+ * @toks: An array of strings to represent the tokens of
+ * the current command input.
+ * @pid: An integer to represent the _process ID of current _process.
  * @status: An integer to represent the exit status of the last executed
  * command.
- * @envion: An array of strings.
+ * @_environ: An array of strings.
  * @loop_count: An integer to represent the number of times the shell has
  * executed its main loop.
  */
@@ -48,7 +51,7 @@ typedef struct SHELL
 
 
 /**
- * struct builtin commands - This struct stores built-in commands in the shell.
+ * struct builtincommands - stores built-in commands in the shell.
  * @command: A string to represent the name of the built-in command.
  * @function: A function pointer that executes
  * the built-in command.
@@ -63,11 +66,11 @@ typedef struct builtincommands
 
 
 /**
- * structure log - This structure rep a node in a linked list used to store
+ * struct log - structure rep a node in a linked list used to store
  * logical operators in a command line.
- * @command: A string to represent the command associated with the node.
- * @separate: A character to represent the logical operator separator.
- * @linked: A pointer to the next node in the linked list.
+ * @com: A string to represent the command associated with the node.
+ * @sep: A character to represent the logical operator separator.
+ * @next: A pointer to the next node in the linked list.
  */
 
 typedef struct log
