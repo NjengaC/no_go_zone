@@ -51,7 +51,7 @@ char *exit_status(char *input, char *status)
 	int i, len, j, l;
 	char *new;
 
-	len = (_strlen((input) +_strlen(status)));
+	len = (_strlen((input) + _strlen(status)));
 	new = malloc(len + 1);
 
 	if (!new)
@@ -64,7 +64,7 @@ char *exit_status(char *input, char *status)
 	{
 		if (input[i] == '$')
 		{
-			for (l = 0; l <_strlen(status); l++)
+			for (l = 0; l < _strlen(status); l++)
 			{
 				new[j] = status[l];
 				j++;
@@ -97,7 +97,7 @@ char *identity(char *input, char *id)
 	int i, len, j, l;
 	char *new;
 
-	len = (_strlen(input) +_strlen(id));
+	len = (_strlen(input) + _strlen(id));
 	new = malloc(len + 1);
 
 	if (!new)
@@ -110,7 +110,7 @@ char *identity(char *input, char *id)
 	{
 		if (input[i] == '$')
 		{
-			for (l = 0; l <_strlen(id); l++)
+			for (l = 0; l < _strlen(id); l++)
 			{
 				new[j] = id[l];
 				j++;
@@ -164,7 +164,7 @@ char *en_var(char *input, SHELL *shell __attribute__ ((unused)))
 	}
 	if (copy)
 	{
-		len =_strlen(input) + (_strlen(copy) -_strlen(ename));
+		len = _strlen(input) + (_strlen(copy) - _strlen(ename));
 		new = malloc((len + 1) * sizeof(char));
 	}
 	else
@@ -202,7 +202,7 @@ char *Replace(char *input, char *new, char *copy, char *ename)
 					new[j] = copy[k];
 					j++;
 				}
-				i +=_strlen(ename);
+				i += _strlen(ename);
 			}
 			else
 			{
@@ -217,7 +217,7 @@ char *Replace(char *input, char *new, char *copy, char *ename)
 		{
 			if (input[i] == '$')
 			{
-				i +=_strlen(ename);
+				i += _strlen(ename);
 			}
 			else
 			{

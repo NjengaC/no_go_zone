@@ -95,12 +95,12 @@ char *_getline()
 }
 
 /**
- *  - a Function that handles the case where # has been used in a command.
+ * handle_hash - handles the case where # has been used in a command.
  * @buffer: pointer to where the user input is stored.
  * Return: the buffer after the #has been ignored hence a comment.
  */
 
-char *handle_(char *buffer)
+char *handle_hash(char *buffer)
 {
 	int i;
 	bool quotes = false;

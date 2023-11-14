@@ -46,11 +46,11 @@ int _strlen(char *input)
 
 
 /**
- *ext - extesnion for strtok
- *@nextToken: the next token
- *@isdelimter: delimiters used
- *@Delimiters: tracker for the delimiters
- *Return: nothing
+ * ext - extesnion for strtok
+ * @nextToken: the next token
+ * @delim: delimiters used
+ * @isDelimiter: tracker for the delimiters
+ * Return: nothing
  */
 
 void ext(char *nextToken, const char *delim, int *isDelimiter)
@@ -73,7 +73,7 @@ void ext(char *nextToken, const char *delim, int *isDelimiter)
  * Return: number of characters counted in the string.
  **/
 
-size_t _strlen00(const char *s)
+size_t _strlen0(const char *s)
 {
 	size_t len = 0;
 
@@ -84,16 +84,15 @@ size_t _strlen00(const char *s)
 	return (len);
 }
 /**
- *log -  linked list for logical operators
- *@head: head of the linked list
- *@command: input command
- *Return: nothing
+ * _log -  linked list for logical operators
+ * @head: head of the linked list
+ * @command: input command
+ * Return: nothing
  */
 
 void _log(log **head, char *command)
 {
 	log *current, *new;
-
 
 	new = malloc(sizeof(log));
 

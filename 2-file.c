@@ -64,7 +64,7 @@ char *which(char *input)
 
 	while (tok)
 	{
-		string_len =_strlen(input) +_strlen(tok) + 2;
+		string_len = _strlen(input) + _strlen(tok) + 2;
 		dir = malloc(string_len * sizeof(char));
 		if (!dir)
 		{

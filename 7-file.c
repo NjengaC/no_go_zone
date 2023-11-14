@@ -146,7 +146,7 @@ void frees(SHELL *eshell)
 }
 
 /**
- *free_log(( - this frees the logical operators linked lists
+ *free_log - this frees the logical operators linked lists
  *@head: head of the liked lists
  *Return: nothing
  */
