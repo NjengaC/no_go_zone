@@ -11,8 +11,9 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf(NULL);
-	len2 = printf(NULL);
+	len = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	printf("Lengths differ.\n%d---%d", len, len2);
 	fflush(stdout);
 	if (len != len2)
 	{
