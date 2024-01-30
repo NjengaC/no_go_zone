@@ -4,6 +4,7 @@
  * @format: string that contains characters
  * Return: Returns the number of characters printed
  */
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int j, i, len = 0;
@@ -14,6 +15,8 @@ int _printf(const char *format, ...)
 	va_start(arg_list, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
+		if (format == NULL || strlen(format) == 1)
+			return (-1);
 		if (format[i] == '%')
 		{
 			i++;
