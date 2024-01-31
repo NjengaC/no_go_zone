@@ -1,10 +1,11 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- *  * Itoa - changes from integer to string
- *   * @n: the number
- *    * Return: a string of the number
- *     */
+ * Itoa - changes from integer to string
+ * @n: the number
+ * Return: a string of the number
+ */
+char *Itoa(int n);
 char *Itoa(int n)
 {
 	unsigned int n1;
@@ -25,7 +26,7 @@ char *Itoa(int n)
 
 	if (n < 0)
 	{
-		length++; 
+		length++;
 		n1 = (unsigned int)(-n);
 	}
 	else
