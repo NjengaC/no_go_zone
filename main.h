@@ -9,5 +9,6 @@
 
 int _printf(const char *format, ...);
 char *Itoa(int n);
+char *bin_convert(unsigned long int n);
 #endif
 
